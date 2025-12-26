@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Go build & test
-        uses: pyjlos/cicd/actions/build/go@v1.0.4
+        uses: pyjlos/cicd/actions/build/go@v1.0.5
         with:
           go-version: ${{ inputs.go-version }}
           working-directory: ${{ inputs.working-directory }}
