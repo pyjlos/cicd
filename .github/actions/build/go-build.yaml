@@ -11,9 +11,9 @@ on:
         required: false
         type: string
         default: "."
-    # secrets:
-    #   GH_TOKEN:
-    #     required: false
+    secrets:
+      GH_TOKEN:
+        required: false
 
 jobs:
   build:
