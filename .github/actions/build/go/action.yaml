@@ -1,0 +1,24 @@
+# composite action for building and testing Go projects
+# when people call the "cicd" action from their app repos -> it will eventually call this 
+name: Go Build Steps
+
+inputs:
+  go-version:
+    default: "1.25"
+  working-directory:
+    default: "."
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-go@v5
+      with:
+        go-version: ${{ inputs.go-version }}
+
+    - run: go build ./...
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+
+    - run: go test ./...
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
